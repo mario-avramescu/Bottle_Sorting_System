@@ -1,0 +1,10 @@
+ipython
+jupyterlab
+notebook
+ruff
+ultralytics
+opencv-python
+lapx
+PyYAML
+matplotlib
+-e .
