@@ -111,6 +111,4 @@ make run
 
 ## 🎬 DEMO! HOW YOLO MODEL WORKS!
 
-https://github.com/user-attachments/assets/352ba5c1-b519-415f-93b3-abe81cb51831
-
-
+https://github.com/user-attachments/assets/ddefca72-dc4d-4390-a327-919367c6de96
