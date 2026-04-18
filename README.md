@@ -50,17 +50,16 @@ This project simulates an industrial environment where a conveyor belt transport
 
 ### 1. Data Collection and Labeling
 
-```
 Before training, you must prepare your "dataset":
     - Take photos of necessary bottles (e.g. Cola, Pepsi, Fanta, Sprite);
     - Use a labeling tool like Label Studio, CVAT, or Robotflow;
     - Annotate the objects using the YOLO format and add it in `data/raw` directory;
     - Ensure `data/raw` contains: `images/`, `labels/` and `classes.txt`.
-```
+
+---
 
 ### 2. Dataset Generation
 
-````
 Organize your raw data into structured folders for training. This script handles shuffling and splitting (Train, Validation, and Test sets), e.g:
 
 ```bash
@@ -68,47 +67,46 @@ make data VAL_SIZE=0.1 TEST_SIZE=0.1
 ```
 
 This creates `data/processed` folder with the required YOLO directory structure.
-````
+
+---
 
 ### 3. Model Training
 
-````
 Train the YOLO model using the provided Makefile. You can override default parameters directly from the terminal, e.g.:
 
 ```bash
 make train MODEL=yolov8s.pt EPOCHS=75 BATCH=4
 ```
 
-**Logs**: Training progress is saved in `reports/`;
+**Logs**: Training progress is saved in `reports/`;  
 **Weights**: The best performing weights (`best.pt`) are automatically copied to `models/`.
-````
+
+---
 
 ### 4. Evaluation and Testing
 
-```
 To verify the model's performance on 'test_set' or unseen images in the training session before deployment, navigate to `notebooks/image_predictions.ipynb`, which allows you to load the model and to visualize detections on those images.
-```
+
+---
 
 ### 5. Live Detection
 
-````
 Once you have the "perfect" model, launch it in a real-time sorting system:
 
 ```bash
 make run
 ```
 
-**Features**: Includes an auto-reconnect login for the camera and a "Camera Not Found" safety UI;
-**Controls**: Press `q` to safely exist the stream and release hardware resources.
-````
+**Features**: Includes an auto-reconnect login for the camera and a "Camera Not Found" safety UI;  
+**Controls**: Press `q` to safely exit the stream and release hardware resources.
+
+---
 
 ## 🧰 Used Technology:
 
-```
-* YOLO *: Core object detection and tracking;
-* OpenCV *: Video stream handling;
-* Pytonh 3.12 *: Main login and backend;
-* GNU Make *: Task automation
-```
+- YOLO: Core object detection and tracking;
+- OpenCV: Video stream handling;
+- Pytonh 3.12: Main login and backend;
+- GNU Make: Task automation
 
-## 🎬 DEMO! HOW THIS PROJECT WORKS!
+## 🎬 DEMO! HOW YOLO MODEL WORKS!
