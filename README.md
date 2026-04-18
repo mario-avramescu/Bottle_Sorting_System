@@ -51,10 +51,10 @@ This project simulates an industrial environment where a conveyor belt transport
 ### 1. Data Collection and Labeling
 
 Before training, you must prepare your "dataset":
-    - Take photos of necessary bottles (e.g. Cola, Pepsi, Fanta, Sprite);
-    - Use a labeling tool like Label Studio, CVAT, or Robotflow;
-    - Annotate the objects using the YOLO format and add it in `data/raw` directory;
-    - Ensure `data/raw` contains: `images/`, `labels/` and `classes.txt`.
+- Take photos of necessary bottles (e.g. Cola, Pepsi, Fanta, Sprite);
+- Use a labeling tool like Label Studio, CVAT, or Robotflow;
+- Annotate the objects using the YOLO format and add it in `data/raw` directory;
+- Ensure `data/raw` contains: `images/`, `labels/` and `classes.txt`.
 
 ---
 
@@ -78,8 +78,8 @@ Train the YOLO model using the provided Makefile. You can override default param
 make train MODEL=yolov8s.pt EPOCHS=75 BATCH=4
 ```
 
-**Logs**: Training progress is saved in `reports/`;  
-**Weights**: The best performing weights (`best.pt`) are automatically copied to `models/`.
+- **Logs**: Training progress is saved in `reports/`;  
+- **Weights**: The best performing weights (`best.pt`) are automatically copied to `models/`.
 
 ---
 
@@ -97,8 +97,8 @@ Once you have the "perfect" model, launch it in a real-time sorting system:
 make run
 ```
 
-**Features**: Includes an auto-reconnect login for the camera and a "Camera Not Found" safety UI;  
-**Controls**: Press `q` to safely exit the stream and release hardware resources.
+- **Features**: Includes an auto-reconnect login for the camera and a "Camera Not Found" safety UI;  
+- **Controls**: Press `q` to safely exit the stream and release hardware resources.
 
 ---
 
