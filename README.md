@@ -102,7 +102,7 @@ make run
 **Controls**: Press `q` to safely exist the stream and release hardware resources.
 ````
 
-## Used Technology:
+## 🧰 Used Technology:
 
 ```
 * YOLO *: Core object detection and tracking;
@@ -111,4 +111,4 @@ make run
 * GNU Make *: Task automation
 ```
 
-## VIDEO! HOW THIS PROJECT WORKS
+## 🎬 DEMO! HOW THIS PROJECT WORKS!
