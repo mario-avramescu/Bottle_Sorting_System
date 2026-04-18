@@ -52,7 +52,7 @@ This project simulates an industrial environment where a conveyor belt transport
 
 Before training, you must prepare your "dataset":
 - Take photos of necessary bottles (e.g. Cola, Pepsi, Fanta, Sprite);
-- Use a labeling tool like Label Studio, CVAT, or Robotflow;
+- Use a labeling tool like Label Studio, CVAT, or Roboflow;
 - Annotate the objects using the YOLO format and add it in `data/raw` directory;
 - Ensure `data/raw` contains: `images/`, `labels/` and `classes.txt`.
 
