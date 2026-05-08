@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Intelligent Bottle Sorting System</title>
+        <link rel="stylesheet" href="../static/css/style.css">
+    </head>
+    <body>
+        <div id="content-wrapper">
+            <header id="title-header">
+                <h1>Intelligent Bottle Sorting System</h1>
+            </header>
+
+            <form id="raspberry-connection" autocomplete="off">
+                <p id="form-title">Raspberry Pi Connection</p>
+                <div class="info-alert">
+                    <p><strong>Info:</strong> Ensure both your computer and Raspberry Pi are connected to the same Wi-Fi network.</p>
+                </div>
+                
+                <label for="raspberry-ip">IP:</label>
+                <input type="text" id="raspberry-ip" class="form-control" placeholder="Enter Raspberry Pi IP Address (e.g., 192.168.1.100)">
+
+                <label for="raspberry-port">Port:</label>
+                <input type="text" id="raspberry-port" class="form-control" placeholder="Enter Raspberry Pi Port (e.g., 22)">
+
+                <label for="raspberry-username">Username:</label>
+                <input type="text" id="raspberry-username" class="form-control" placeholder="Enter Raspberry Pi Username (e.g., pi)">
+
+                <label for="raspberry-password">Password:</label>
+                <input type="password" id="raspberry-password" class="form-control" placeholder="Enter Raspberry Pi Password (e.g., your_password)">
+
+                <p id="connection_status" class="not_connected">Click <span>"Connect"</span> button to connect your Raspberry Pi!</p>
+                <button onclick="connectToRaspberry()">Connect</button>
+            </form>
+
+            <section id="start-section">
+                <button onclick="startSystem()">Start</button>
+                <p id="start-text">Click <span>"Start"</span> button to start the system</p>
+                <p id="start-warning" class="hidden">Error: Please connect to your Raspberry Pi</p>
+            </section>
+
+            <footer id="footer">
+                <p>&copy;Developed by Avramescu Mario-Ionuț</p>
+            </footer>
+        </div>
+        <script src="../static/js/script.js"></script>
+    </body>
+</html>
+
+<!-- Raspberry Pi is Connected! Click "Disconnect" button to disconnect from the Raspberry Pi -->

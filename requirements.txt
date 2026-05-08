@@ -7,4 +7,5 @@ opencv-python
 lapx
 PyYAML
 matplotlib
+flask
 -e .
