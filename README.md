@@ -110,3 +110,5 @@ make run
 - GNU Make: Task automation
 
 ## 🎬 DEMO! HOW YOLO MODEL WORKS!
+
+https://github.com/user-attachments/assets/ddefca72-dc4d-4390-a327-919367c6de96
