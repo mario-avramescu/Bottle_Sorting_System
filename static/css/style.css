@@ -41,6 +41,26 @@ body {
     width: 100%;
 }
 
+#video-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.video-container {
+    border: 4px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#video-feed {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 #start-section{
     display: flex;
     flex-direction: column;
@@ -83,123 +103,6 @@ body {
 #start-text span {
     font-weight: 700;
     color: #712222; 
-}
-
-#start-warning {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2.5rem;
-    line-height: 5rem;
-    color: #b60d0d;
-}
-
-#raspberry-connection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.2); 
-    padding: 3rem 4rem;
-    border-radius: 1.5rem;
-    width: 90%;
-    max-width: 50rem; 
-    gap: 1rem;
-    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
-}
-
-#form-title {
-    font-family: 'Lilita One', sans-serif;
-    font-size: 3rem;
-    color: #712222;
-    margin-bottom: 1.5rem;
-}
-
-.info-alert {
-    display: flex;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-left: 0.5rem solid #712222;
-    padding: 1.2rem 1.5rem;
-    border-radius: 0.5rem;
-    margin-bottom: 2rem;
-    width: 100%;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05); 
-}
-
-.info-alert p {
-    font-family: 'Sansation', sans-serif;
-    font-size: 1.4rem;
-    color: #170707;
-    margin: 0;
-    line-height: 1.5; 
-}
-
-.info-alert strong {
-    color: #712222;
-    font-weight: bold;
-}
-
-#raspberry-connection label {
-    font-family: 'Sansation', sans-serif;
-    font-size: 1.8rem;
-    color: #170707;
-    align-self: flex-start; 
-    margin-bottom: -0.5rem; 
-    margin-left: 0.5rem;
-}
-
-
-#raspberry-connection .form-control {
-    width: 100%;
-    padding: 1.2rem 1.5rem;
-    font-family: 'Sansation', sans-serif;
-    font-size: 1.4rem; 
-    border: 0.2rem solid #c6a7a7; 
-    border-radius: 1rem;
-    background-color: #f0f0f0;
-    color: #170707;
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#raspberry-connection .form-control:focus {
-    border-color: #712222;
-    box-shadow: 0 0 0.8rem rgba(113, 34, 34, 0.3);
-}
-
-
-#connection_status {
-    font-family: 'Sansation', sans-serif;
-    font-size: 1.6rem;
-    color: #170707;
-    margin-top: 1.5rem;
-    height: 7rem;
-    text-align: center;
-}
-
-#connection_status span {
-    font-weight: 700;
-    color: #712222; 
-}
-
-#raspberry-connection button {
-    border: none;
-    border-radius: 1.5rem;
-    background-color: #5a1c1c;
-    color: #E3D3D3;
-    font-family: "Lilita One", sans-serif;
-    font-size: 2.5rem;
-    padding: 1.5rem 5rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    width: 20rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#raspberry-connection button:active {
-    transform: scale(0.98); 
 }
 
 #footer {
