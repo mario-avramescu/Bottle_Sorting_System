@@ -106,7 +106,7 @@ class Detection:
     def __init__(self, model_path: str | Path, confidence: float = 0.7):
         self.model = YOLO(str(model_path))
         self.confidence = confidence
-        self.results = []
+        self.result = None
 
         self.classes = self.model.names
 
@@ -114,18 +114,17 @@ class Detection:
         # self.counted_ids = set()
 
     def get_detected_objects(self, frame: MatLike):
-        self.results = self.model(source = frame,
+        self.result = self.model.track(source = frame,
                                   verbose = False,
                                   conf = self.confidence,
-                                  iou = 0.35)
+                                  iou = 0.35)[0]
         
     def draw_detected_objects(self, frame: MatLike):
-        result = self.results[0]
         
-        if result and result.boxes:
-            class_names = result.names
+        if self.result and self.result.boxes and len(self.result.boxes) > 0:
+            class_names = self.result.names
 
-            for box in result.boxes:
+            for box in self.result.boxes:
                 x1, y1, x2, y2 = map(int, box.xyxy[0])
 
                 x_mid = (x1 + x2) // 2
