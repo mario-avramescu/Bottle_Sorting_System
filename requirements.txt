@@ -8,4 +8,5 @@ lapx
 PyYAML
 matplotlib
 flask
+python-dotenv
 -e .

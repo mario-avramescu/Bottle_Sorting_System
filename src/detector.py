@@ -15,13 +15,15 @@ from src.config import OBJECTS_COLOUR
 
 
 class Camera:
-    def __init__(self, camera_id: int, width: int = 960, height: int = 720):
+    def __init__(self, camera_id: int, width: int = 640, height: int = 480):
         self.camera_id = camera_id
         self.width = width
         self.height = height
+
         self.last_reconnect_time = 0
         self.connected = False
         self.frame = np.zeros((self.height, self.width, 3), dtype=np.uint8)
+
         self.__window_name = "Bottle Sorting System"
         
         self.__initialize_capture()
@@ -31,9 +33,9 @@ class Camera:
         if self.capture.isOpened():
             self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
             self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.height)
-            actual_w = self.capture.get(cv2.CAP_PROP_FRAME_WIDTH)
-            actual_h = self.capture.get(cv2.CAP_PROP_FRAME_HEIGHT)
-            print(f"Camera ON; Resolution: {actual_w} x {actual_h}")
+            
+            self.capture.set(cv2.CAP_PROP_BUFFERSIZE, 1) 
+            
             self.connected = True
         else:
             self.capture = None
@@ -73,9 +75,23 @@ class Camera:
     def run(self, process_frame: Callable[[], MatLike]):
         cv2.namedWindow(self.__window_name, cv2.WINDOW_NORMAL)
         cv2.resizeWindow(self.__window_name, self.width, self.height)
+
+        prev_time = time.time()
+        frames_passed = 0
+        fps_real = 0.0
         
         while True:
             self.frame = process_frame()
+
+            frames_passed += 1
+            current_time = time.time()
+            if current_time - prev_time >= 1.0:
+                fps_real = frames_passed / (current_time - prev_time)
+                frames_passed = 0
+                prev_time = current_time
+
+            cv2.putText(self.frame, f"FPS: {int(fps_real)}", (10, 30), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
             
             cv2.imshow(self.__window_name, self.frame)
 
@@ -83,7 +99,7 @@ class Camera:
                 if self.capture:
                     self.capture.release()
                 cv2.destroyAllWindows()
-                break     
+                break  
  
 
 class Detection:
@@ -98,10 +114,10 @@ class Detection:
         # self.counted_ids = set()
 
     def get_detected_objects(self, frame: MatLike):
-        self.results = self.model.track(source = frame,
-                                        verbose = False,
-                                        conf = self.confidence,
-                                        iou = 0.35)
+        self.results = self.model(source = frame,
+                                  verbose = False,
+                                  conf = self.confidence,
+                                  iou = 0.35)
         
     def draw_detected_objects(self, frame: MatLike):
         result = self.results[0]

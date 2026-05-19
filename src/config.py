@@ -13,12 +13,6 @@ REPORTS_DIR = PROJ_ROOT / "reports"
 
 # Detection PARAMETERS
 MODEL_PATH = MODELS_DIR / "best.pt"  # change 'best.pt' to your model name if different   
-
-CAMERA_ID = 0
-CAMERA_WIDTH = 960
-CAMERA_HEIGHT = 720
-
-
 CONFIDENCE_THRESHOLD = 0.7
 
 OBJECTS_COLOUR = {
@@ -27,3 +21,8 @@ OBJECTS_COLOUR = {
     "cola": (11, 3, 252),   
     "sprite": (78, 252, 3)   
 }
+
+#Camera parameters
+CAMERA_WIDTH = 640
+CAMERA_HEIGHT = 480
+CAMERA_ID = 0

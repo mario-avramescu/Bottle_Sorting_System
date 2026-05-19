@@ -28,7 +28,7 @@ This project simulates an industrial environment where a conveyor belt transport
 │
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment
 │
-├── main.py            <- Main file to run the script/system
+├── app.py            <- Main file to run the script/system
 │
 └── src   <- Source code for use in this project.
     │
