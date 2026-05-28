@@ -6,13 +6,14 @@ from src.config import (
     LED_PIN1,
     LED_PIN2,
     MODEL_PATH,
+    SERVO_PIN,
 )
 from src.detector import Camera, Detection
 from src.sorting import SortingDetectedObject
 
 camera = Camera(CAMERA_ID, CAMERA_WIDTH, CAMERA_HEIGHT)
 detector = Detection(MODEL_PATH, CONFIDENCE_THRESHOLD)
-sorting_detected_objects = SortingDetectedObject(LED_PIN1, LED_PIN2)
+sorting_detected_objects = SortingDetectedObject(LED_PIN1, LED_PIN2, SERVO_PIN)
 
 frame_counter = 0
 
@@ -26,6 +27,7 @@ def process_frame():
 
     if frame_counter % 5 == 0:
         detector.get_detected_objects(frame)
+        frame_counter = 0
 
     if detector.result:
         detector.draw_detected_objects(frame)

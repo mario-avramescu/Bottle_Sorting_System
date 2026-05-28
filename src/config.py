@@ -12,8 +12,8 @@ MODELS_DIR = PROJ_ROOT / "models"
 REPORTS_DIR = PROJ_ROOT / "reports"
 
 # Detection PARAMETERS
-MODEL_PATH = MODELS_DIR / "best.pt"  # change 'best.pt' to your model name if different   
-CONFIDENCE_THRESHOLD = 0.7
+MODEL_PATH = MODELS_DIR / "best_ncnn_model"  # change 'best.pt' to your model name if different   
+CONFIDENCE_THRESHOLD = 0.75
 
 OBJECTS_COLOUR = {
     "pepsi": (252, 40, 3),  
@@ -30,3 +30,4 @@ CAMERA_ID = 0
 #Sorting parameters
 LED_PIN1 = 17
 LED_PIN2 = 27
+SERVO_PIN = 22
