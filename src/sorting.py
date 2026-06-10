@@ -61,7 +61,7 @@ class SortingDetectedObject:
             GPIO.output(self._motor_stepper_step, GPIO.LOW)
             time.sleep(delay)
 
-    def _run_dc_motor_logic(self, forward: bool):
+    def _run_dc_motor(self, forward: bool):
         self._dc_moving = True  
         
         if not self._first_detection:
