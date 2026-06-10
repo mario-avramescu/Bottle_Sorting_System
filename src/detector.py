@@ -11,11 +11,11 @@ from cv2.typing import MatLike
 import numpy as np
 from ultralytics import YOLO
 
-from src.config import OBJECTS_COLOUR
+import config
 
 
 class Camera:
-    def __init__(self, camera_id: int, width: int = 640, height: int = 480):
+    def __init__(self, camera_id: int = config.CAMERA_ID, width: int = config.CAMERA_WIDTH, height: int = config.CAMERA_HEIGHT):
         self.camera_id = camera_id
         self.width = width
         self.height = height
@@ -103,15 +103,13 @@ class Camera:
  
 
 class Detection:
-    def __init__(self, model_path: str | Path, confidence: float = 0.7):
+    def __init__(self, model_path: str | Path = config.MODEL_PATH, confidence: float = config.CONFIDENCE_THRESHOLD):
         self.model = YOLO(str(model_path))
         self.confidence = confidence
         self.result = None
 
         self.classes = self.model.names
 
-        # self.objects_counter = {cls_name: 0 for cls_name in self.classes.values()}
-        # self.counted_ids = set()
 
     def get_detected_objects(self, frame: MatLike):
         self.result = self.model.track(source = frame,
@@ -135,7 +133,7 @@ class Detection:
 
                 conf = float(box.conf[0])
 
-                colour = OBJECTS_COLOUR.get(class_name, (255, 255, 255))
+                colour = config.OBJECTS_COLOUR.get(class_name, (255, 255, 255))
 
                 cv2.rectangle(frame, (x1, y1), (x2, y2), colour, 2)
                 cv2.circle(frame, (x_mid, y_mid), 3, colour, 1)
@@ -145,6 +143,3 @@ class Detection:
                             (x1, max(y1 - 10, 20)),
                             cv2.FONT_HERSHEY_SIMPLEX,
                             0.6, colour, 2)
-
-
-# TODO: Add counting logic based on object IDs and a defined counting line.
