@@ -110,14 +110,14 @@ class SortingDetectedObject:
             GPIO.output(self._led_pin1, GPIO.HIGH)
             GPIO.output(self._led_pin2, GPIO.LOW)
             
-            dc_thread = threading.Thread(target=self._run_dc_motor_logic, args=(True,), daemon=True)
+            dc_thread = threading.Thread(target=self._run_dc_motor, args=(True,), daemon=True)
             dc_thread.start()
             
         elif current_category == "fanta_sprite":
             GPIO.output(self._led_pin1, GPIO.LOW)
             GPIO.output(self._led_pin2, GPIO.HIGH)
             
-            dc_thread = threading.Thread(target=self._run_dc_motor_logic, args=(False,), daemon=True)
+            dc_thread = threading.Thread(target=self._run_dc_motorc, args=(False,), daemon=True)
             dc_thread.start()
 
     def cleanup(self):
